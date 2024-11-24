@@ -14,8 +14,9 @@ export interface IUser extends Document {
 
 const addressSchema = new mongoose.Schema({
     name: { type: String, required: true }, 
-    value: { type: String, required: true }
-});
+    value: { type: String, required: true },
+    
+},{ _id: false });
 
 const userSchema = new mongoose.Schema({
     firstName: { type: String, required: true },
