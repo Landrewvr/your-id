@@ -1,4 +1,4 @@
 import express from 'express';
 
 
-console.log(express)
+console.log('test test')
