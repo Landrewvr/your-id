@@ -1,5 +1,6 @@
 // Encrypt text by shifting characters (including numbers and special characters)
 export function encrypt(text: string, shift: number): string {
+
   return text.split('')
              .map(char => String.fromCharCode(char.charCodeAt(0) + shift))
              .join('');
