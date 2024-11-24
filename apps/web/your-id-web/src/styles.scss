@@ -7,8 +7,14 @@
     --font-family: "Jost", sans-serif;
 }
 
+html {
+    background: var(--primary-bg) !important;
+    height: 100%;
+}
+
 body {
     font-family: var(--font-family);
+    min-height: 95%;
 }
 
 h1, .semibold {
@@ -32,5 +38,5 @@ h2, .bold {
 .medium {
     font-size: 10px;
     line-height: 16px;
-    letter-spacing:  0.5px;
+    letter-spacing: 0.5px;
 }

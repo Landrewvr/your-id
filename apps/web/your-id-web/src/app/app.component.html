@@ -1,11 +1,8 @@
-<h1>Test</h1>
-<h2 class="sub-title">sub class</h2>
-<p>test param test test alem</p>
-<router-outlet></router-outlet>
-
-<fa-icon [icon]="icons.faBars" ></fa-icon>
-<fa-icon [icon]="icons.faCheck" ></fa-icon>
-<fa-icon [icon]="icons.faPen" ></fa-icon>
-<fa-icon [icon]="icons.faUser" ></fa-icon>
-
-<i class="fas fa-user"></i>
+<div class="content">
+    <div class="header">
+        <fa-icon [icon]="faBars" class="fa-xl"></fa-icon>
+    </div>
+    <div class="body">
+        <router-outlet></router-outlet>
+    </div>
+</div>

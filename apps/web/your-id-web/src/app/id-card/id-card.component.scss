@@ -1,0 +1,83 @@
+.content {
+    width: 50%;
+    background-color: var(--secondary-bg);
+    border: 1px solid var(--secondary-color);
+    border-radius: 1rem;
+    margin: auto;
+    padding: 1rem 4rem;
+}
+
+.card-edit-mode {
+    background-color: transparent;
+    border: 4px dashed var(--primary-color);
+}
+
+.header {
+    color: var(--primary-color);
+    display: flex;
+    justify-content: space-between;
+
+    button {
+        border: none;
+        background-color: transparent;
+        color: var(--primary-color);
+        cursor: pointer;
+    }
+}
+
+.section-header {
+   color: var(--primary-color) 
+}
+
+.body-section-information {
+
+    h2 {
+        margin: 6px 0;
+    }
+
+    .regular {
+        margin-left: 30px;
+    }
+}
+
+.account-info {
+    display: flex;
+    justify-content: space-between;
+    width: 93%;
+}
+
+.personal-info {
+    display: flex;
+    justify-content: space-between;
+    width: 63%;
+    .field-flex {
+        flex-direction: column;
+    }
+
+    .regular {
+        margin: 6px 0;
+    }
+}
+
+.field-flex {
+    display: flex;
+
+    span {
+        align-content: center;
+    }
+}
+
+.picture-field {
+    display: grid;
+    padding: 1rem;
+    margin-right: 1rem;
+    background-color: var(--tertiary-bg);
+    border: 1px solid var(--secondary-color);
+    border-radius: 5px;
+
+    img {
+        margin: auto;
+        width: 51px;
+        height: 56px;
+    }
+}

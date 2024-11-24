@@ -1,5 +1,5 @@
 $chat-bg: linear-gradient(#F8F8F8,#CBD7D0);
-$id-card-bg: linear-gradient(#FFF3EC, 75%);
+$id-card-bg: #fff3ec;
 $file-bg: #FDFDFB;
 
 $rust: #B95319;
@@ -12,8 +12,8 @@ $colors: (
     secondary-bg: $id-card-bg,
     tertiary-bg: $file-bg,
 
-    primary: $rust,
-    secondary: $green,
-    tertiary: $black,
-    quaternary: $charcoal-blue
+    primary-color: $rust,
+    secondary-color: $green,
+    tertiary-color: $black,
+    quaternary-color: $charcoal-blue
 )
