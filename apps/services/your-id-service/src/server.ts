@@ -32,10 +32,7 @@ app.use(cors());
 // Routes
 app.use('/user', userRouter)
 
-
 // Server Start
 app.listen(appPort, () => {
     console.log(`Server is running on localhost:${appPort}`)
 })
-
-
