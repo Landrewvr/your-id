@@ -2,7 +2,7 @@ import { type NextFunction, type Request, type Response, Router} from 'express';
 import User from '../models/User';
 
 const router = Router();
-
+// Create user
 router.post('', async(req: Request, res: Response, next: NextFunction) => {
     try {
         const user = await User.create(req.body);
