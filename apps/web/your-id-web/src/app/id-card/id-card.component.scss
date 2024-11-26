@@ -4,7 +4,7 @@
     border: 1px solid var(--secondary-color);
     border-radius: 1rem;
     margin: auto;
-    padding: 1rem 3rem;
+    padding: 1rem 2rem;
 }
 
 .card-edit-mode {
@@ -13,6 +13,8 @@
 
     input {
         background-color: #ffff;
+        pointer-events: auto;
+        user-select: text;
     }
 }
 
@@ -20,6 +22,10 @@
     color: var(--primary-color);
     display: flex;
     justify-content: space-between;
+
+    div {
+        align-self: center;
+    }
 
     button {
         border: none;
@@ -50,12 +56,14 @@
 
 .section-panel {
     margin-left: 3rem;
+    width: 60%;
 }
 
 .personal-info {
     display: flex;
     justify-content: space-between;
-    width: 63%;
+    width: 80%;
+
     .field-flex {
         flex-direction: column;
     }
@@ -93,4 +101,14 @@ input {
     align-self: center;
     border: none;
     background-color: transparent;
+    pointer-events: none;
+    user-select: text;
+}
+
+.date-picker {
+    input[type="date"]::-webkit-inner-spin-button,
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        display: none;
+        -webkit-appearance: none;
+    }
 }

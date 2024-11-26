@@ -9,7 +9,8 @@
 
 html {
     background: var(--primary-bg) !important;
-    height: 100%;
+    background-repeat: no-repeat;
+    min-height: 100%;
 }
 
 body {
@@ -44,4 +45,5 @@ h2, .bold {
 
 input {
     width: 100%;
+    font-family: var(--font-family);
 }

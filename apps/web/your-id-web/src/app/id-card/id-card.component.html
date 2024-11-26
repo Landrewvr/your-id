@@ -1,77 +1,86 @@
 <div class="content" [ngClass]="{'card-edit-mode': editMode}">
     <div class="header">
         <h1>ID <fa-icon [icon]="icons.faUser"/></h1>
-        <button *ngIf="!editMode" (click)="editMode = true"><fa-icon [icon]="icons.faPen" class="fa-xl"/></button>
-        <button *ngIf="editMode" (click)="editMode = false"><fa-icon [icon]="icons.faCheck" class="fa-xl"/></button>
+        <div *ngIf="!editMode">
+            <button (click)="editMode = true"><fa-icon [icon]="icons.faPen" class="fa-xl"/></button>
+        </div>
+        <div *ngIf="editMode">
+            <button *ngIf="user._id" (click)="deleteUser()"><fa-icon [icon]="icons.faTrash" class="fa-xl"/></button>  
+            <button (click)="save()"><fa-icon [icon]="icons.faCheck" class="fa-xl"/></button>
+        </div>
     </div>
     <div class="body">
-        <div class="body-section">
-            <h2 class="section-header">Account Information</h2>
-            <div class="body-section-information account-info">
-                <div class="sub-section">
-                    <div class="field-flex">
-                        <h2>First Name</h2> 
-                        <input class="regular" type="text" value="Ebony">
+        <form *ngIf="userForm" [formGroup]="userForm">
+            <div class="body-section">
+                <h2 class="section-header">Account Information</h2>
+                <div class="body-section-information account-info">
+                    <div class="sub-section">
+                        <div class="field-flex">
+                            <label for="firstName"><h2>First Name</h2></label> 
+                            <input id="firstName" class="regular" type="text" formControlName="firstName">
+                        </div>
+                        <div class="field-flex">
+                            <label for="lastName"><h2>Last Name</h2></label>
+                            <input id="lastName" class="regular" type="text" formControlName="lastName">
+                        </div> 
                     </div>
-                    <div class="field-flex">
-                        <h2>Last Name</h2>
-                        <input class="regular" type="text" value="Moore">
-                    </div> 
-                </div>
-                <div class="section-panel">
-                    <div class="field-flex">
-                        <h2>Registered Email</h2>
-                        <input class="regular w-60" type="text" value="EbonyMoore456@gmail.com">
-                    </div>
-                    <div class="field-flex">
-                        <h2>Cell Phone Number</h2>
-                        <input class="regular" type="text" value="(216)835-9545">
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="body-section">
-            <h2 class="section-header">Address</h2>
-            <div class="body-section-information">
-                <div class="field-flex">
-                    <h2>Home Address</h2>
-                    <input class="regular" type="text" value="123 Maple Street, Cleveland, OH 44119">
-                </div>
-                <div class="field-flex">
-                    <h2>Mailing Address</h2>
-                    <input class="regular" type="text" value="123 Maple Street, Cleveland, OH 44119">
-                </div>
-            </div>
-        </div>
-        <div class="body-section">
-            <h2 class="section-header">Personally Identifiable Information</h2>
-            <div class="body-section-information personal-info">
-                 <div class="field-flex">
-                    <h2>Social Security Numbers (SSNs)</h2>
-                    <h2>Date of Birth</h2>
-                    <h2>Medicare Beneficiary Identifiers (MBIs)</h2>
-                </div>
-                <div class="field-flex">
-                    <input class="regular" type="text" value="05/09/1998">
-                    <input class="regular" type="text" value="234-71-1083">
-                    <input class="regular" type="text" value="1EG4-TE5-MK73">
-                </div>
-            </div>
-        </div>
-        <div class="body-section">
-            <h2 class="section-header">Documents</h2>
-            <div class="body-section-information">
-                <div class="field-flex">
-                    <div class="picture-field">
-                        <img src="../../assets/icondoc.JPG" alt="">
-                        <span class="medium">ID Card.png</span>
-                    </div>
-                    <div class="picture-field">
-                        <img src="../../assets/iconpng.JPG" alt="">
-                        <span class="medium">ID Card.png</span>
+                    <div class="section-panel">
+                        <div class="field-flex">
+                            <label for="email"><h2>Registered Email</h2></label>
+                            <input id="email" class="regular" type="text" formControlName="email">
+                        </div>
+                        <div class="field-flex">
+                            <label for="cellPhoneNumber"><h2>Cell Phone Number</h2></label>
+                            <input id="cellPhoneNumber" class="regular" type="text" formControlName="cellPhoneNumber">
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+            <div class="body-section">
+                <h2 class="section-header">Address</h2>
+                <div class="body-section-information">
+                    <div class="field-flex">
+                        <h2>Home Address</h2>
+                        <input class="regular" type="text" value="123 Maple Street, Cleveland, OH 44119">
+                    </div>
+                    <div class="field-flex">
+                        <h2>Mailing Address</h2>
+                        <input class="regular" type="text" value="123 Maple Street, Cleveland, OH 44119">
+                    </div>
+                </div>
+            </div>
+            <div class="body-section">
+                <h2 class="section-header">Personally Identificable Information</h2>
+                <div class="body-section-information personal-info">
+                     <div class="field-flex">
+                        <h2>Social Security Numbers (SSNs)</h2>
+                        <h2>Date of Birth</h2>
+                        <h2>Medicare Beneficiary Identifiers (MBIs)</h2>
+                    </div>
+                    <div class="field-flex" style="width: 50%">
+                        <input class="regular" type="text" formControlName="ssn">
+                        <div [ngClass]="{'date-picker': !editMode}">
+                            <input class="regular" type="date" formControlName="dateOfBirth">
+                        </div>
+                        <input class="regular" type="text" formControlName="medicareBeneficiaryIdentifiers">
+                    </div>
+                </div>
+            </div>
+            <div class="body-section">
+                <h2 class="section-header">Documents</h2>
+                <div class="body-section-information">
+                    <div class="field-flex">
+                        <div class="picture-field">
+                            <img src="../../assets/icondoc.JPG" alt="">
+                            <span class="medium">ID Card.png</span>
+                        </div>
+                        <div class="picture-field">
+                            <img src="../../assets/iconpng.JPG" alt="">
+                            <span class="medium">ID Card.png</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
 </div>
