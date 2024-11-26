@@ -5,7 +5,7 @@
             <button (click)="editMode = true"><fa-icon [icon]="icons.faPen" class="fa-xl"/></button>
         </div>
         <div *ngIf="editMode">
-            <button *ngIf="user._id" (click)="deleteUser()"><fa-icon [icon]="icons.faTrash" class="fa-xl"/></button>  
+            <button *ngIf="user && user._id" (click)="deleteUser()"><fa-icon [icon]="icons.faTrash" class="fa-xl"/></button>  
             <button (click)="save()"><fa-icon [icon]="icons.faCheck" class="fa-xl"/></button>
         </div>
     </div>
@@ -40,12 +40,12 @@
                 <h2 class="section-header">Address</h2>
                 <div class="body-section-information">
                     <div class="field-flex">
-                        <h2>Home Address</h2>
-                        <input class="regular" type="text" value="123 Maple Street, Cleveland, OH 44119">
+                        <label for="address"><h2>Home Address</h2></label>
+                        <input id="address" class="regular" type="text" formControlName="address">
                     </div>
                     <div class="field-flex">
-                        <h2>Mailing Address</h2>
-                        <input class="regular" type="text" value="123 Maple Street, Cleveland, OH 44119">
+                        <label for="mailingAddress"><h2>Mailing Address</h2></label>
+                        <input id="mailingAddress" class="regular" type="text" formControlName="mailingAddress">
                     </div>
                 </div>
             </div>
