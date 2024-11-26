@@ -38,8 +38,8 @@ export class IdCardComponent {
       lastName: this.fb.control(''),
       email: this.fb.control(''),
       cellPhoneNumber: this.fb.control(''),
-      homeAddress: this.fb.group(''),
-      mailingAddress: this.fb.group(''),
+      address: this.fb.control(''),
+      mailingAddress: this.fb.control(''),
       ssn: this.fb.control(''),
       dateOfBirth: this.fb.control(''),
       medicareBeneficiaryIdentifiers: this.fb.control(''),
@@ -81,7 +81,8 @@ export class IdCardComponent {
     : this.userService.create(this.userForm.value);
 
     saveRequest.subscribe(res => {
-      this.router.navigate(['../', res._id], { relativeTo: this.activeRoute });
+      this.user = res;
+      this.router.navigate(['../', this.user._id], { relativeTo: this.activeRoute });
       this.editMode = false;
     });
   }
