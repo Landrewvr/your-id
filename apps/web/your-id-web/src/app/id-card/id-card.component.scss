@@ -10,6 +10,10 @@
 .card-edit-mode {
     background-color: transparent;
     border: 4px dashed var(--primary-color);
+
+    input {
+        background-color: #ffff;
+    }
 }
 
 .header {
@@ -40,11 +44,18 @@
     }
 }
 
+.account-info {
+    display: flex;
+}
+
+.section-panel {
+    margin-left: 3rem;
+}
+
 .personal-info {
     display: flex;
     justify-content: space-between;
     width: 63%;
-    
     .field-flex {
         flex-direction: column;
     }
@@ -77,8 +88,9 @@
     }
 }
 
-.write-input {
-    border: none;
+input {
     height: 25px;
     align-self: center;
+    border: none;
+    background-color: transparent;
 }

@@ -27,6 +27,7 @@ h2, .bold {
     font-size: 18px;
     line-height: 26px;
     letter-spacing:  0px;
+    text-wrap: nowrap;
 }
 
 .regular {
@@ -39,4 +40,8 @@ h2, .bold {
     font-size: 10px;
     line-height: 16px;
     letter-spacing: 0.5px;
+}
+
+input {
+    width: 100%;
 }
