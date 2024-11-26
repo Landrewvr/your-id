@@ -5,9 +5,9 @@ const router = Router();
 // Create user
 router.post('', async(req: Request, res: Response, next: NextFunction) => {
     try {
-        const user = await User.create(req.body);
+        const response = await User.create(req.body);
         
-        res.status(200).json(user);
+        res.status(200).json(response);
     } catch (err) {
         next(err)
     }
@@ -16,14 +16,14 @@ router.post('', async(req: Request, res: Response, next: NextFunction) => {
 // Get user by id
 router.get('/:id', async(req: Request, res: Response, next: NextFunction) => {
     try {
-        const user = await User.findById(req.params.id);
+        const response = await User.findById(req.params.id);
 
-        if (!user) {
+        if (!response) {
             res.status(404);
             throw new Error('User not found');
         }
         
-        res.status(200).json(user);
+        res.status(200).json(response);
     } catch (err) {
         next(err)
     }
@@ -32,14 +32,14 @@ router.get('/:id', async(req: Request, res: Response, next: NextFunction) => {
 // Update User by id
 router.put('/:id', async(req: Request, res: Response, next: NextFunction) => {
     try {
-        const user = await User.findByIdAndUpdate({ _id: req.params.id }, {$set: req.body}, {new: true});
+        const response = await User.findByIdAndUpdate({ _id: req.params.id }, {$set: req.body}, {new: true});
 
-        if (!user) {
+        if (!response) {
             res.status(404);
             throw new Error('User not found');
         }
 
-        res.status(200).json(user);
+        res.status(200).json(response);
     } catch (err) {
         next(err)
     }
@@ -48,14 +48,14 @@ router.put('/:id', async(req: Request, res: Response, next: NextFunction) => {
 // Delete User by id
 router.delete('/:id', async(req: Request, res: Response, next: NextFunction) => {
     try {
-        const user = await User.deleteOne({ _id: req.params.id });
+        const response = await User.deleteOne({ _id: req.params.id });
 
-        if (!user) {
+        if (!response) {
             res.status(404);
             throw new Error('User not found');
         }
 
-        res.status(200).json(user);
+        res.status(200).json(response);
     } catch (err) {
         next(err)
     }

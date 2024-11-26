@@ -4,7 +4,7 @@
     border: 1px solid var(--secondary-color);
     border-radius: 1rem;
     margin: auto;
-    padding: 1rem 4rem;
+    padding: 1rem 3rem;
 }
 
 .card-edit-mode {
@@ -40,16 +40,11 @@
     }
 }
 
-.account-info {
-    display: flex;
-    justify-content: space-between;
-    width: 93%;
-}
-
 .personal-info {
     display: flex;
     justify-content: space-between;
     width: 63%;
+    
     .field-flex {
         flex-direction: column;
     }
@@ -80,4 +75,10 @@
         width: 51px;
         height: 56px;
     }
+}
+
+.write-input {
+    border: none;
+    height: 25px;
+    align-self: center;
 }
