@@ -5,5 +5,10 @@ export const ID_CARD_ROUTES: Route[] = [
     {
         path: ':id',
         component: IdCardComponent
+    },
+    {
+        path: '',
+        redirectTo: '0',
+        pathMatch: 'full'
     }
 ];

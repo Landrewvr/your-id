@@ -10,12 +10,22 @@
 .card-edit-mode {
     background-color: transparent;
     border: 4px dashed var(--primary-color);
+
+    input {
+        background-color: #ffff;
+        pointer-events: auto;
+        user-select: text;
+    }
 }
 
 .header {
     color: var(--primary-color);
     display: flex;
     justify-content: space-between;
+
+    div {
+        align-self: center;
+    }
 
     button {
         border: none;
@@ -42,20 +52,56 @@
 
 .account-info {
     display: flex;
-    justify-content: space-between;
-    width: 93%;
-}
 
-.personal-info {
-    display: flex;
-    justify-content: space-between;
-    width: 63%;
-    .field-flex {
-        flex-direction: column;
+    .sub-section-1 {
+        width: 45%;
+    }
+
+    .sub-section-2 {
+        width: 70%;
+    }
+
+    .field-label {
+        width: 38%;
+    }
+
+    .field-value {
+        width: 58%;
+        align-content: center;
     }
 
     .regular {
-        margin: 6px 0;
+        margin-left: 0;
+    }
+}
+
+.address-info {
+    .field-label {
+        width: 19%;
+    }
+
+    .field-value {
+        width: 79%;
+        align-content: center;
+    }
+
+    .regular {
+        margin-left: 0;
+    }
+}
+
+.personal-info {
+    .field-label {
+        width: 45%;
+    }
+
+    .field-value {
+        width: 40%;
+        align-content: center;
+    }
+
+    .regular {
+        margin-left: 0;
     }
 }
 
@@ -80,4 +126,25 @@
         width: 51px;
         height: 56px;
     }
+}
+
+input {
+    height: 25px;
+    align-self: center;
+    border: none;
+    background-color: transparent;
+    pointer-events: none;
+    user-select: text;
+}
+
+.date-picker {
+    input[type="date"]::-webkit-inner-spin-button,
+    input[type="date"]::-webkit-calendar-picker-indicator {
+        display: none;
+        -webkit-appearance: none;
+    }
+}
+
+.left-spacing {
+    margin-left: 1rem;
 }

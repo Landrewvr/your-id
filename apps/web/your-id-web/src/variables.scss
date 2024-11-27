@@ -6,6 +6,7 @@ $rust: #B95319;
 $green: #96AD90;
 $black: #232C27;
 $charcoal-blue: #2F4858;
+$error-red: #d00a0a;
 
 $colors: (
     primary-bg: $chat-bg,
@@ -15,5 +16,7 @@ $colors: (
     primary-color: $rust,
     secondary-color: $green,
     tertiary-color: $black,
-    quaternary-color: $charcoal-blue
+    quaternary-color: $charcoal-blue,
+
+    failure-color: $error-red
 )
