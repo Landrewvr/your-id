@@ -1,15 +1,14 @@
 import { CommonModule, formatDate } from '@angular/common';
-import { Component, effect, inject, Signal } from '@angular/core';
+import { Component, effect, Signal } from '@angular/core';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { faPen, faCheck, faUser, faTrash, faX } from '@fortawesome/free-solid-svg-icons';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { toSignal } from '@angular/core/rxjs-interop';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { User } from '../../types/user';
 import { patterns } from '../../consts/patterns';
 import { UserService } from '../../services/user/user.service';
 import { LoaderService } from '../../services/loader/loader.service';
-import { timeout } from 'rxjs';
 
 @Component({
   selector: 'app-id-card',
@@ -18,7 +17,6 @@ import { timeout } from 'rxjs';
   styleUrl: './id-card.component.scss'
 })
 export class IdCardComponent {
-  private  = inject(ActivatedRoute);
   paramSignal!:Signal<Params | undefined>;
   userForm!: FormGroup;
   user!: User;
@@ -42,6 +40,7 @@ export class IdCardComponent {
   ) {
     this.paramSignal = toSignal(this.activeRoute.params);
     this.loaderService.loadingState.set(true);
+
     effect(() => {
       const params = this.paramSignal();
       const userId = params ? params['id'] : '0';
@@ -59,6 +58,7 @@ export class IdCardComponent {
 
       if (userId === '0') {
         this.loaderService.loadingState.set(false);
+        this.editMode = true;
         
         return;
       }
