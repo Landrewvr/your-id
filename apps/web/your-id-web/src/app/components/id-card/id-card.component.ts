@@ -57,7 +57,11 @@ export class IdCardComponent {
         medicareBeneficiaryIdentifiers: this.fb.control('', [Validators.required, Validators.pattern(patterns.MEDICARE_IDENTIFIERS)]),
       })
 
-      if (userId === '0') return;
+      if (userId === '0') {
+        this.loaderService.loadingState.set(false);
+        
+        return;
+      }
 
       this.userService.getUserById(userId).subscribe({next: (res) => {
         this.loaderService.loadingState.set(false);
