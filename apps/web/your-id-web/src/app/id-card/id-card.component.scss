@@ -4,7 +4,7 @@
     border: 1px solid var(--secondary-color);
     border-radius: 1rem;
     margin: auto;
-    padding: 1rem 2rem;
+    padding: 1rem 4rem;
 }
 
 .card-edit-mode {
@@ -52,24 +52,56 @@
 
 .account-info {
     display: flex;
-}
 
-.section-panel {
-    margin-left: 3rem;
-    width: 60%;
-}
+    .sub-section-1 {
+        width: 45%;
+    }
 
-.personal-info {
-    display: flex;
-    justify-content: space-between;
-    width: 80%;
+    .sub-section-2 {
+        width: 70%;
+    }
 
-    .field-flex {
-        flex-direction: column;
+    .field-label {
+        width: 38%;
+    }
+
+    .field-value {
+        width: 58%;
+        align-content: center;
     }
 
     .regular {
-        margin: 6px 0;
+        margin-left: 0;
+    }
+}
+
+.address-info {
+    .field-label {
+        width: 19%;
+    }
+
+    .field-value {
+        width: 79%;
+        align-content: center;
+    }
+
+    .regular {
+        margin-left: 0;
+    }
+}
+
+.personal-info {
+    .field-label {
+        width: 45%;
+    }
+
+    .field-value {
+        width: 40%;
+        align-content: center;
+    }
+
+    .regular {
+        margin-left: 0;
     }
 }
 
