@@ -1,38 +1,32 @@
-import express from 'express';
-import cors from 'cors';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
-
-import userRouter from './routes/userRoutes'
+import http from 'node:http';
+import { app } from './app';
 
 // Initialize doteng to load env variables
+console.log('[server] Getting server settings...');
 dotenv.config();
-
-// Express app creation
-const app = express();
 
 // Pulling enviroment constants from .env file
 const appPort = process.env.DEV_APP_PORT || '';
 const dbUrl = process.env.DATABASE_URL || '';
 
 // Mongoose connection creation
+console.log('[server] Connecting to database...')
 mongoose.set('strictQuery', false);
 mongoose.connect(dbUrl)
 .then((db) => {
-    console.log(`Connected to ${db.connection.name} database on ${db.connection.host}:${db.connection.port}`);
+    console.log(`[server] Connected to ${db.connection.name} database on ${db.connection.host}:${db.connection.port}`);
 })
 .catch((error: any) => {
-    console.log('Database connection error:', error);
+    console.error('[server] Database connection error:', error);
 });
 
-// Middlewares
-app.use(express.json());
-app.use(cors());
-
-// Routes
-app.use('/user', userRouter)
+// Server start with http
+console.log('[server] Creating server...')
+const server = http.createServer(app);
 
 // Server Start
-app.listen(appPort, () => {
-    console.log(`Server is running on localhost:${appPort}`)
+server.listen(appPort, () => {
+    console.log(`[server] Server is running on localhost:${appPort}`)
 })
