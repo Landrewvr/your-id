@@ -1,0 +1,29 @@
+.loading-overlay {
+    position: fixed;        /* Fixed position on the screen */
+    top: 0;                 /* Full screen height */
+    left: 0;                /* Full screen width */
+    width: 100%;            /* Cover entire viewport */
+    height: 100%;           /* Cover entire viewport */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    display: flex;          /* Initially hidden */
+    justify-content: center; /* Center the spinner */
+    align-items: center;    /* Center the spinner vertically */
+    z-index: 9999;          /* High z-index to make sure it's on top */
+  }
+
+  /* Spinner Style */
+  .spinner {
+    border: 8px solid #f3f3f3; /* Light grey background */
+    border-top: 8px solid #3498db; /* Blue color */
+    border-radius: 50%;  /* Make it circular */
+    width: 50px;         /* Set width of the spinner */
+    height: 50px;        /* Set height of the spinner */
+    animation: spin 2s linear infinite; /* Animate the spinner */
+  }
+
+  /* Spinner Animation */
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
+  
