@@ -9,8 +9,8 @@
 
         <div *ngIf="editMode">
             <button *ngIf="editMode && user && user._id" (click)="deleteUser()"><fa-icon [icon]="icons.faTrash" class="fa-2xl"/></button>  
-            <button (click)="save()" style="margin-left: 1rem;"><fa-icon [icon]="icons.faCheck" class="fa-2xl"/></button>
-            <button (click)="editMode = false" style="margin-left: 1rem;"><fa-icon [icon]="icons.faX" class="fa-2xl"/></button>
+            <button (click)="save()" class="left-spacing"><fa-icon [icon]="icons.faCheck" class="fa-2xl"/></button>
+            <button (click)="editMode = false" class="left-spacing"><fa-icon [icon]="icons.faX" class="fa-2xl"/></button>
         </div>
     </div>
     <div class="body">
