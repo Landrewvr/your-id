@@ -1,12 +1,16 @@
 <div class="content" [ngClass]="{'card-edit-mode': editMode}">
     <div class="header">
+        
         <h1>ID <fa-icon [icon]="icons.faUser"/></h1>
+        
         <div *ngIf="!editMode">
-            <button (click)="editMode = true"><fa-icon [icon]="icons.faPen" class="fa-xl"/></button>
+            <button (click)="editMode = true"><fa-icon [icon]="icons.faPen" class="fa-2xl"/></button>
         </div>
+
         <div *ngIf="editMode">
-            <button *ngIf="user && user._id" (click)="deleteUser()"><fa-icon [icon]="icons.faTrash" class="fa-xl"/></button>  
-            <button (click)="save()"><fa-icon [icon]="icons.faCheck" class="fa-xl"/></button>
+            <button *ngIf="editMode && user && user._id" (click)="deleteUser()"><fa-icon [icon]="icons.faTrash" class="fa-2xl"/></button>  
+            <button (click)="save()" class="left-spacing"><fa-icon [icon]="icons.faCheck" class="fa-2xl"/></button>
+            <button (click)="editMode = false" class="left-spacing"><fa-icon [icon]="icons.faX" class="fa-2xl"/></button>
         </div>
     </div>
     <div class="body">
@@ -14,55 +18,105 @@
             <div class="body-section">
                 <h2 class="section-header">Account Information</h2>
                 <div class="body-section-information account-info">
-                    <div class="sub-section">
+                    <div class="sub-section-1">
                         <div class="field-flex">
-                            <label for="firstName"><h2>First Name</h2></label> 
-                            <input id="firstName" class="regular" type="text" formControlName="firstName">
+                            <div class="field-label">
+                                <label for="firstName"><h2>First Name</h2></label> 
+                            </div>
+                            <div class="field-value">
+                                <input id="firstName" placeholder="John" class="regular" type="text" formControlName="firstName">
+                                <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('firstName')?.hasError('required')">This field is required.</div>
+                            </div>
                         </div>
                         <div class="field-flex">
-                            <label for="lastName"><h2>Last Name</h2></label>
-                            <input id="lastName" class="regular" type="text" formControlName="lastName">
+                            <div class="field-label">
+                                <label for="lastName"><h2>Last Name</h2></label>
+                            </div>
+                            <div class="field-value">
+                                <input id="lastName" placeholder="Doe" class="regular" type="text" formControlName="lastName">
+                                <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('lastName')?.hasError('required')">This field is required.</div>
+                            </div>
                         </div> 
                     </div>
-                    <div class="section-panel">
+                    <div class="sub-section-2">
                         <div class="field-flex">
-                            <label for="email"><h2>Registered Email</h2></label>
-                            <input id="email" class="regular" type="text" formControlName="email">
+                            <div class="field-label">
+                                <label for="email"><h2>Registered Email</h2></label>
+                            </div>
+                            <div class="field-value">
+                                <input id="email" placeholder="johndoe@email.com" class="regular" type="text" formControlName="email">
+                                <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('email')?.hasError('required')">This field is required.</div>
+                                <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('email')?.hasError('pattern')">This field must be an valid email.</div>
+                            </div>
                         </div>
                         <div class="field-flex">
-                            <label for="cellPhoneNumber"><h2>Cell Phone Number</h2></label>
-                            <input id="cellPhoneNumber" class="regular" type="text" formControlName="cellPhoneNumber">
+                            <div class="field-label">
+                                <label for="cellPhoneNumber"><h2>Cell Phone Number</h2></label>
+                            </div>
+                            <div class="field-value">
+                                <input id="cellPhoneNumber" placeholder="(111) 222-3333" class="regular" type="text" formControlName="cellPhoneNumber">
+                                <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('cellPhoneNumber')?.hasError('required')">This field is required.</div>
+                                <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('cellPhoneNumber')?.hasError('pattern')">This field must be a valid Cellphone Number.</div>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="body-section">
                 <h2 class="section-header">Address</h2>
-                <div class="body-section-information">
+                <div class="body-section-information address-info">
                     <div class="field-flex">
-                        <label for="address"><h2>Home Address</h2></label>
-                        <input id="address" class="regular" type="text" formControlName="address">
+                        <div class="field-label">
+                            <label for="address"><h2>Home Address</h2></label>
+                        </div>
+                        <div class="field-value">
+                            <input id="address" placeholder="123 Main St, Springfield, IL 62704" class="regular" type="text" formControlName="address">
+                            <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('address')?.hasError('required')">This field is required.</div>
+                            <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('address')?.hasError('pattern')">This field must be a valid US Address.</div>
+                        </div>
                     </div>
                     <div class="field-flex">
-                        <label for="mailingAddress"><h2>Mailing Address</h2></label>
-                        <input id="mailingAddress" class="regular" type="text" formControlName="mailingAddress">
+                        <div class="field-label">
+                            <label for="mailingAddress"><h2>Mailing Address</h2></label>
+                        </div>
+                        <div class="field-value">
+                            <input id="mailingAddress" class="regular" type="text" formControlName="mailingAddress">
+                            <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('mailingAddress')?.hasError('pattern')">This field must be a valid US Address.</div>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="body-section">
                 <h2 class="section-header">Personally Identificable Information</h2>
                 <div class="body-section-information personal-info">
-                     <div class="field-flex">
-                        <h2>Social Security Numbers (SSNs)</h2>
-                        <h2>Date of Birth</h2>
-                        <h2>Medicare Beneficiary Identifiers (MBIs)</h2>
-                    </div>
-                    <div class="field-flex" style="width: 50%">
-                        <input class="regular" type="text" formControlName="ssn">
-                        <div [ngClass]="{'date-picker': !editMode}">
-                            <input class="regular" type="date" formControlName="dateOfBirth">
+                    <div class="field-flex">
+                        <div class="field-label">
+                            <label for="ssn"><h2>Social Security Numbers (SSNs)</h2></label>
                         </div>
-                        <input class="regular" type="text" formControlName="medicareBeneficiaryIdentifiers">
+                        <div class="field-value">
+                            <input id="ssn" placeholder="111-22-3333" class="regular" type="text" formControlName="ssn">
+                            <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('ssn')?.hasError('required')">This field is required.</div>
+                            <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('ssn')?.hasError('pattern')">This field must a valid SSN.</div>
+                        </div>
+                    </div>
+                    <div class="field-flex">
+                        <div class="field-label">
+                            <label for="dateOfBirth"><h2>Date of Birth</h2></label>
+                        </div>
+                        <div class="field-value" [ngClass]="{'date-picker': !editMode}">
+                            <input id="dateOfBirth" class="regular" type="date" formControlName="dateOfBirth">
+                            <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('dateOfBirth')?.hasError('required')">This field is required.</div>
+                        </div>
+                    </div>
+                    <div class="field-flex">
+                        <div class="field-label">
+                            <label for="medicareBeneficiaryIdentifiers"><h2>Medicare Beneficiary Identifiers (MBIs)</h2></label>
+                        </div>
+                        <div class="field-value">
+                            <input id="medicareBeneficiaryIdentifiers" placeholder="1EG4-TE5-MK73" class="regular" type="text" formControlName="medicareBeneficiaryIdentifiers">
+                            <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('medicareBeneficiaryIdentifiers')?.hasError('required')">This field is required.</div>
+                            <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('medicareBeneficiaryIdentifiers')?.hasError('pattern')">This field must a valid Medicare Identifier.</div>
+                        </div>
                     </div>
                 </div>
             </div>
