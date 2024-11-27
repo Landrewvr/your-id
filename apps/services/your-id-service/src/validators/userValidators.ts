@@ -52,7 +52,7 @@ export const createUserValidatorSchema: Schema = {
             options: [userPatterns.ADDRESS],
             errorMessage: `${isNotValid('address')} ${userMessages.ADDRESS}`
         },
-        optional: { options: { nullable: true } }
+        optional: { options: { nullable: true, checkFalsy: true } }
     },
     ssn: {
         notEmpty: {
