@@ -6,7 +6,10 @@
     "apps/**/*"
   ],
   "scripts": {
-    "start:dev": "concurrently \"npm run start:dev --workspace=your-id-web\" \"npm run start:dev --workspace=your-id-service\"",
+    "start:dev": "concurrently \"docker compose up -d\" \"npm run start:dev --workspace=your-id-web\" \"npm run start:dev --workspace=your-id-service\"",
+    "start:docker": "docker compose up -d --build",
+    "stop:docker": "docker compose down",
+    "stop:docker-v": "docker compose down -v",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
