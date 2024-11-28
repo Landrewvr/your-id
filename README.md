@@ -1,6 +1,18 @@
 
 # Your id
 
+The Your-ID application is a full-stack solution designed to help operators efficiently store, manage, and process user data with the ultimate goal of generating customized ID cards. Here's a detailed description of its functionality:
+
+## Purpose
+
+The application is intended to streamline the workflow for organizations that need to create ID cards for their members, employees, or clients. Typical use cases include:
+
+- Employee ID management for companies.
+- Membership cards for clubs or organizations.
+- Student IDs for schools or universities.
+
+# Monorepo
+
 This monorepo contains the codebase for a full-stack application built with **Angular**, **Node.js**, **Express**, and **MongoDB**, and uses **Docker** for containerization.
 
 ## Project Structure
