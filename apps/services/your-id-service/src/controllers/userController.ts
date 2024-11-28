@@ -1,4 +1,4 @@
-import { type NextFunction, type Request, type Response, Router} from 'express';
+import { type NextFunction, type Request, type Response } from 'express';
 import User from '../models/User';
 import { validationResult } from 'express-validator';
 
@@ -43,11 +43,17 @@ export const updateUser = async(req: Request, res: Response, next: NextFunction)
 
 // Get user by id
 export const getUser = async(req: Request, res: Response, next: NextFunction) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+        
+        return res.status(400).json({ message: errors.array()[0].msg });
+    }
+
     try {
         const response = await User.findById(req.params.id);
 
         if (!response) {
-            res.status(404);
+            res.status(404).json({message: 'User not found'});
             throw new Error('User not found');
         }
         

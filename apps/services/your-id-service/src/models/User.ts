@@ -1,17 +1,5 @@
 import mongoose from 'mongoose';
-
-export interface IUser extends mongoose.Document {
-    firstName: string,
-    lastName: string,
-    email: string,
-    cellPhoneNumber: string,
-    address: string,
-    mailingAddress: string,
-    ssn: string,
-    dateOfBirth: Date,
-    medicareBeneficiaryIdentifiers: string,
-    documents: Array<string>
-};
+import { IUser } from '../interfaces/user';
 
 const userSchema = new mongoose.Schema({
     firstName: { type: String, required: true },

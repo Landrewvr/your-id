@@ -17,9 +17,9 @@ import { LoaderService } from '../../services/loader/loader.service';
   styleUrl: './id-card.component.scss'
 })
 export class IdCardComponent {
-  paramSignal!:Signal<Params | undefined>;
+  paramSignal!: Signal<Params | undefined>;
   userForm!: FormGroup;
-  user!: User;
+  user: User | undefined;
 
   editMode = false;
   formSubmitted =false;
@@ -65,13 +65,23 @@ export class IdCardComponent {
 
       this.userService.getUserById(userId).subscribe({next: (res) => {
         this.loaderService.loadingState.set(false);
+
+        if (!res) return;
+ 
         this.user = res;
         this.setFormValues()
-      },error: err => console.error(err)});
+      },error: (err) => {
+        alert(err.error.message);
+        this.loaderService.loadingState.set(false);
+        this.editMode = true;
+        this.reloadParams('0');
+      }});
       });
   }
 
   setFormValues() {
+    if (!this.user) return;
+
     this.userForm.patchValue({
       ...this.user, dateOfBirth: 
       formatDate(this.user.dateOfBirth, 'yyyy-MM-dd', 'en')
@@ -83,14 +93,18 @@ export class IdCardComponent {
     if (!confirm('You are about to delete this user, do you want to proceed?')) return;
 
     this.loaderService.loadingState.set(true);
-    this.userService.delete(this.user._id).subscribe(res => {
+    this.userService.delete(this.user._id).subscribe({next: () => {
       this.loaderService.loadingState.set(false);
+
       alert('User deleted successfully');
-      this.editMode = false;
-      this.formSubmitted = false;
-      this.userForm.markAsPristine();
-      this.router.navigate(['../', '0'], { relativeTo: this.activeRoute });
-    });
+
+      this.user = undefined;
+      this.resetForm();
+      this.reloadParams('0')
+    },error: err => {
+      this.loaderService.loadingState.set(false);
+      alert(err.error.message);
+    }});
   }
 
   save() {
@@ -107,15 +121,28 @@ export class IdCardComponent {
     })
     : this.userService.create(this.userForm.value);
 
-    saveRequest.subscribe(res => {
+    saveRequest.subscribe({next: (res) => {
       this.loaderService.loadingState.set(false);
-      alert('User saved successfully')
+
+      alert('User saved successfully');
+
       this.user = res;
-      this.router.navigate(['../', this.user._id], { relativeTo: this.activeRoute });
-      this.editMode = false;
-      this.formSubmitted = false;
-      this.userForm.markAsPristine();
-    });
+      this.resetForm();
+      this.reloadParams(this.user._id ?? '');
+    },error: err => {
+      this.loaderService.loadingState.set(false);
+      alert(err.error.message);
+    }});
+  }
+
+  resetForm() {
+    this.editMode = false;
+    this.formSubmitted = false;
+    this.userForm.markAsPristine();
+  }
+
+  reloadParams(id: string) {
+    this.router.navigate(['../', id], { relativeTo: this.activeRoute });
   }
   
 }
