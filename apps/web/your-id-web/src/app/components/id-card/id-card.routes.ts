@@ -1,14 +1,14 @@
-import { Route } from "@angular/router";
-import { IdCardComponent } from "./id-card.component";
+import { IdCardComponent } from './id-card.component';
+import { Route } from '@angular/router';
 
 export const ID_CARD_ROUTES: Route[] = [
-    {
-        path: ':id',
-        component: IdCardComponent
-    },
-    {
-        path: '',
-        redirectTo: '0',
-        pathMatch: 'full'
-    }
+  {
+    path: ':id',
+    component: IdCardComponent
+  },
+  {
+    path: '',
+    redirectTo: '0',
+    pathMatch: 'full'
+  }
 ];
