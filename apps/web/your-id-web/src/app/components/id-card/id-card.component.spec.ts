@@ -10,7 +10,7 @@ describe('IdCardComponent', () => {
     await TestBed.configureTestingModule({
       imports: [IdCardComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(IdCardComponent);
     component = fixture.componentInstance;

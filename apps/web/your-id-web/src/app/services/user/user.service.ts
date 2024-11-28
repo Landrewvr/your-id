@@ -7,8 +7,7 @@ import { User } from '../../types/user';
   providedIn: 'root'
 })
 export class UserService {
-
-  private uri = 'http://localhost:3000/user/'
+  private uri = 'http://localhost:3000/user/';
   private options = { headers: new HttpHeaders({ authorization: 'mock-token' }) };
 
   private httpClient = inject(HttpClient);
@@ -28,5 +27,4 @@ export class UserService {
   delete(id: string): Observable<void> {
     return this.httpClient.delete<void>(this.uri + id, this.options);
   }
-
 }

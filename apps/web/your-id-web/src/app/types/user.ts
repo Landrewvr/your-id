@@ -1,4 +1,4 @@
-export type User = {
+export interface User {
     _id?: string,
     firstName: string,
     lastName: string,
@@ -9,5 +9,5 @@ export type User = {
     ssn: string,
     dateOfBirth: Date,
     medicareBeneficiaryIdentifiers: string,
-    documents: Array<string>
+    documents: string[]
 }
