@@ -1,0 +1,71 @@
+
+# Your id
+
+This monorepo contains the codebase for a full-stack application built with **Angular**, **Node.js**, **Express**, and **MongoDB**, and uses **Docker** for containerization.
+
+## Project Structure
+
+├── apps 
+│ ├── services 
+│ │ └── your-id-service # Backend service 
+│ │ ├── src # Source code for the service 
+│ │ ├── .env # Environment variables 
+│ │ ├── .env.example # Example environment variables 
+│ │ ├── .gitignore # Git ignore file for service 
+│ │ ├── nodemon.json # Nodemon configuration 
+│ │ ├── package.json # Dependencies and scripts 
+│ │ └── tsconfig.json # TypeScript configuration 
+│ └── web 
+│ └── your-id-web # Frontend application 
+│ ├── .angular # Angular CLI configurations 
+│ ├── .vscode # VS Code workspace settings 
+│ ├── src # Source code for the frontend 
+│ ├── public # Public assets 
+│ ├── .browserslistrc # Browser compatibility settings 
+│ ├── angular.json # Angular CLI configuration 
+│ ├── eslint.config.js # ESLint configuration 
+│ ├── karma.conf.js # Karma testing configuration 
+│ ├── package.json # Dependencies and scripts 
+│ ├── tsconfig.json # TypeScript base configuration 
+│ ├── tsconfig.app.json # Angular app TypeScript configuration 
+│ └── README.md # Documentation for the frontend 
+├── node_modules # Shared node modules 
+├── docker-compose.yml # Docker Compose configuration 
+├── package.json # Root dependencies and scripts 
+└── .gitignore # Git ignore file
+
+---
+
+## Prerequisites
+
+- **Node.js** (^22.9.3)
+- **Docker** and **Docker Compose**
+- **Angular CLI** (install globally with `npm install -g @angular/cli`)
+
+---
+
+## Installation
+
+1. **Clone the repository**:
+
+   ```bash
+   git clone https://github.com/your-repo/your-project.git
+   cd your-project
+
+## Environment Configuration
+    Copy .env.example to .env in apps/services/your-id-service and fill in the necessary values (e.g., database connection strings, API keys).
+
+## Project Features
+
+### Backend (your-id-service):
+
+- Node.js with TypeScript
+- Express.js for building RESTful APIs
+- MongoDB for database management
+- Environment-based configurations
+- Frontend (your-id-web):
+
+### Angular framework
+
+- Responsive design
+- Integrated with the backend via RESTful APIs
