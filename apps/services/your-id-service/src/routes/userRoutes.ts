@@ -13,7 +13,7 @@ router.post('', mockAuthorization(['admin']), checkSchema(createUserValidatorSch
 router.put('/:id', mockAuthorization(['admin']), checkSchema(updateUserValidatorSchema), userController.updateUser);
 
 // Get user by ID
-router.get('/:id', mockAuthorization(['admin', 'user']), checkSchema(getUserValidatorSchema), userController.getUser);
+router.get('/:id', mockAuthorization(['admin', 'user']), checkSchema(getUserValidatorSchema,['params']), userController.getUser);
 
 // Delete user by ID
 router.delete('/:id', mockAuthorization(['admin']), userController.deleteUser);
