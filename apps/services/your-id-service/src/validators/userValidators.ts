@@ -10,6 +10,12 @@ const isNotValid = (field: string) => {
     return `${field} is not valid.`;
 }
 
+const mongoIdError = {
+    isMongoId: {
+        errorMessage: 'The provided MongoId is not valid.'
+    }
+}
+
 export const createUserValidatorSchema: Schema = {
     firstName: {
         notEmpty: {
@@ -80,14 +86,10 @@ export const createUserValidatorSchema: Schema = {
 }
 
 export const getUserValidatorSchema: Schema = {
-    _id: {
-        isMongoId: {
-            errorMessage: 'The provided MongoId is not valid.'
-        }
-    }
+    id: mongoIdError
 }
 
 export const updateUserValidatorSchema: Schema = {
     ...createUserValidatorSchema,
-    ...getUserValidatorSchema
+    _id: mongoIdError
 }
