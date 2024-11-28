@@ -16,35 +16,34 @@ The application is intended to streamline the workflow for organizations that ne
 This monorepo contains the codebase for a full-stack application built with **Angular**, **Node.js**, **Express**, and **MongoDB**, and uses **Docker** for containerization.
 
 ## Project Structure
-
-├── apps 
-│ ├── services 
-│ │ └── your-id-service # Backend service 
-│ │ ├── src # Source code for the service 
-│ │ ├── .env # Environment variables 
-│ │ ├── .env.example # Example environment variables 
-│ │ ├── .gitignore # Git ignore file for service 
-│ │ ├── nodemon.json # Nodemon configuration 
-│ │ ├── package.json # Dependencies and scripts 
-│ │ └── tsconfig.json # TypeScript configuration 
-│ └── web 
-│ └── your-id-web # Frontend application 
-│ ├── .angular # Angular CLI configurations 
-│ ├── .vscode # VS Code workspace settings 
-│ ├── src # Source code for the frontend 
-│ ├── public # Public assets 
-│ ├── .browserslistrc # Browser compatibility settings 
-│ ├── angular.json # Angular CLI configuration 
-│ ├── eslint.config.js # ESLint configuration 
-│ ├── karma.conf.js # Karma testing configuration 
-│ ├── package.json # Dependencies and scripts 
-│ ├── tsconfig.json # TypeScript base configuration 
-│ ├── tsconfig.app.json # Angular app TypeScript configuration 
-│ └── README.md # Documentation for the frontend 
-├── node_modules # Shared node modules 
-├── docker-compose.yml # Docker Compose configuration 
-├── package.json # Root dependencies and scripts 
-└── .gitignore # Git ignore file
+    ├── apps 
+    │ ├── services 
+    │ │ └── your-id-service # Backend service 
+    │ │ ├── src # Source code for the service 
+    │ │ ├── .env # Environment variables 
+    │ │ ├── .env.example # Example environment variables 
+    │ │ ├── .gitignore # Git ignore file for service 
+    │ │ ├── nodemon.json # Nodemon configuration 
+    │ │ ├── package.json # Dependencies and scripts 
+    │ │ └── tsconfig.json # TypeScript configuration 
+    │ └── web 
+    │ └── your-id-web # Frontend application 
+    │ ├── .angular # Angular CLI configurations 
+    │ ├── .vscode # VS Code workspace settings 
+    │ ├── src # Source code for the frontend 
+    │ ├── public # Public assets 
+    │ ├── .browserslistrc # Browser compatibility settings 
+    │ ├── angular.json # Angular CLI configuration 
+    │ ├── eslint.config.js # ESLint configuration 
+    │ ├── karma.conf.js # Karma testing configuration 
+    │ ├── package.json # Dependencies and scripts 
+    │ ├── tsconfig.json # TypeScript base configuration 
+    │ ├── tsconfig.app.json # Angular app TypeScript configuration 
+    │ └── README.md # Documentation for the frontend 
+    ├── node_modules # Shared node modules 
+    ├── docker-compose.yml # Docker Compose configuration 
+    ├── package.json # Root dependencies and scripts 
+    └── .gitignore # Git ignore file
 
 ## Prerequisites
 
