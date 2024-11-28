@@ -1,32 +1,39 @@
-import dotenv from 'dotenv';
+import 'dotenv/config'
 import mongoose from 'mongoose';
 import http from 'node:http';
 import { app } from './app';
 
-// Initialize doteng to load env variables
-console.log('[server] Getting server settings...');
-dotenv.config();
-
 // Pulling enviroment constants from .env file
-const appPort = process.env.DEV_APP_PORT || '';
-const dbUrl = process.env.DATABASE_URL || '';
+const {
+    PORT,
+    MONGO_INITDB_ROOT_USERNAME,
+    MONGO_INITDB_ROOT_PASSWORD,
+    MONGO_INITDB_DATABASE,
+    AUTH_SOURCE
+} = process.env;
 
-// Mongoose connection creation
-console.log('[server] Connecting to database...')
-mongoose.set('strictQuery', false);
-mongoose.connect(dbUrl)
-.then((db) => {
-    console.log(`[server] Connected to ${db.connection.name} database on ${db.connection.host}:${db.connection.port}`);
-})
-.catch((error: any) => {
-    console.error('[server] Database connection error:', error);
-});
+const main = () => {
+    const DB_URI = `mongodb://${MONGO_INITDB_ROOT_USERNAME}:${MONGO_INITDB_ROOT_PASSWORD}@localhost:27017/${MONGO_INITDB_DATABASE}?authSource=${AUTH_SOURCE}`;
 
-// Server start with http
-console.log('[server] Creating server...')
-const server = http.createServer(app);
+    // Mongoose connection creation
+    console.log('[server] Connecting to database...')
+    mongoose.set('strictQuery', false);
+    mongoose.connect(DB_URI)
+        .then((db) => {
+            console.log(`[server] Connected to ${db.connection.name} database on ${db.connection.host}:${db.connection.port}`);
+        })
+        .catch((error: any) => {
+            console.error('[server] Database connection error:', error);
+        });
 
-// Server Start
-server.listen(appPort, () => {
-    console.log(`[server] Server is running on localhost:${appPort}`)
-})
+    // Server start with http
+    console.log('[server] Creating server...')
+    const server = http.createServer(app);
+
+    // Server Start
+    server.listen(PORT, () => {
+        console.log(`[server] Server is running on localhost:${PORT}`)
+    })
+}
+
+main();
