@@ -126,7 +126,7 @@ This monorepo contains the codebase for a full-stack application built with **An
 
 ## Contact
 
-Author: Luis Veras
-Email: luis.andrew.veras73@gmail.com
-GitHub: Landrewvr
-Website: (https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile)
+- Author: Luis Veras
+- Email: luis.andrew.veras73@gmail.com
+- GitHub: Landrewvr
+- Website: https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile
