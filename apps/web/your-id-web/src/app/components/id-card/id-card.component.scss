@@ -7,6 +7,10 @@
     padding: 1rem 4rem;
 }
 
+.left-spacing {
+    margin-left: 1rem;
+}
+
 .card-edit-mode {
     background-color: transparent;
     border: 4px dashed var(--primary-color);
@@ -41,96 +45,36 @@
 
 .body-section-information {
 
-    h2 {
-        margin: 6px 0;
-    }
-
     .regular {
         margin-left: 30px;
     }
 }
 
 .account-info {
-    display: flex;
-
-    .sub-section-1 {
-        width: 45%;
-    }
-
-    .sub-section-2 {
-        width: 70%;
-    }
-
-    .field-label {
-        width: 38%;
-    }
-
-    .field-value {
-        width: 58%;
-        align-content: center;
-    }
 
     .regular {
         margin-left: 0;
     }
+
 }
 
 .address-info {
-    .field-label {
-        width: 19%;
-    }
-
-    .field-value {
-        width: 79%;
-        align-content: center;
-    }
 
     .regular {
         margin-left: 0;
     }
+
 }
 
 .personal-info {
-    .field-label {
-        width: 45%;
-    }
-
-    .field-value {
-        width: 40%;
-        align-content: center;
-    }
 
     .regular {
         margin-left: 0;
     }
-}
 
-.field-flex {
-    display: flex;
-
-    span {
-        align-content: center;
-    }
-}
-
-.picture-field {
-    display: grid;
-    padding: 1rem;
-    margin-right: 1rem;
-    background-color: var(--tertiary-bg);
-    border: 1px solid var(--secondary-color);
-    border-radius: 5px;
-
-    img {
-        margin: auto;
-        width: 51px;
-        height: 56px;
-    }
 }
 
 input {
-    height: 25px;
-    align-self: center;
     border: none;
     background-color: transparent;
     pointer-events: none;
@@ -145,6 +89,104 @@ input {
     }
 }
 
-.left-spacing {
-    margin-left: 1rem;
+.documents {
+    .field-flex {
+        display: flex;
+    }
+
+    .picture-field {
+        margin-right: 1rem;
+        display: grid;
+        padding: 1rem;
+        background-color: var(--tertiary-bg);
+        border: 1px solid var(--secondary-color);
+        border-radius: 5px;
+    
+        img {
+            margin: auto;
+            width: 51px;
+            height: 56px;
+        }
+    }
+}
+
+
+
+@media only screen and (min-width: 1530px) {
+
+    
+
+    input {
+        height: 25px;
+        align-self: center;
+    }
+
+    .body-section-information {
+        h2 {
+            margin: 6px 0;
+        }
+    }
+
+    .field-flex {
+        display: flex;
+    
+        span {
+            align-content: center;
+        }
+    }
+
+    .account-info {
+        display: flex;
+
+        .sub-section-1 {
+            width: 45%;
+        }
+
+        .sub-section-2 {
+            width: 70%;
+        }
+
+        .field-label {
+            width: 38%;
+        }
+
+        .field-value {
+            width: 58%;
+            align-content: center;
+        }
+    }
+
+    .address-info {
+        .field-label {
+            width: 19%;
+        }
+    
+        .field-value {
+            width: 79%;
+            align-content: center;
+        }
+    }
+
+    .personal-info {
+        .field-label {
+            width: 45%;
+        }
+    
+        .field-value {
+            width: 40%;
+            align-content: center;
+        }
+    }
+
+    .picture-field {
+        
+        border-radius: 5px;
+    
+        img {
+            margin: auto;
+            width: 51px;
+            height: 56px;
+        }
+    }
+
 }

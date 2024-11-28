@@ -1,5 +1,6 @@
-export interface User {
-    _id?: string,
+import { Document } from "mongoose";
+
+export interface IUser extends Document {
     firstName: string,
     lastName: string,
     email: string,
@@ -9,5 +10,5 @@ export interface User {
     ssn: string,
     dateOfBirth: Date,
     medicareBeneficiaryIdentifiers: string,
-    documents: string[]
-}
+    documents: Array<string>
+};
