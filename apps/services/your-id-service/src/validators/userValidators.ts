@@ -79,11 +79,15 @@ export const createUserValidatorSchema: Schema = {
     }
 }
 
-export const updateUserValidatorSchema: Schema = {
-    ...createUserValidatorSchema,
+export const getUserValidatorSchema: Schema = {
     _id: {
         isMongoId: {
-            errorMessage: 'Please provide a valid mongoId'
+            errorMessage: 'The provided MongoId is not valid.'
         }
     }
+}
+
+export const updateUserValidatorSchema: Schema = {
+    ...createUserValidatorSchema,
+    ...getUserValidatorSchema
 }
