@@ -1,10 +1,10 @@
-import { IdCardComponent } from './id-card.component';
+import { CardIdComponent } from './card-id';
 import { Route } from '@angular/router';
 
-export const ID_CARD_ROUTES: Route[] = [
+export const CARD_ID_ROUTES: Route[] = [
   {
     path: ':id',
-    component: IdCardComponent
+    component: CardIdComponent
   },
   {
     path: '',
