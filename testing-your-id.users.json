@@ -1,0 +1,108 @@
+[{
+  "_id": {
+    "$oid": "67497fcc74f701288fd3781a"
+  },
+  "firstName": "Luis",
+  "lastName": "Veras",
+  "email": "luis.veras@gmail.com",
+  "cellPhoneNumber": "(343) 435-3454",
+  "address": "1234 Main St, Orlando, FL 33542",
+  "mailingAddress": "1234 Main St, Orlando, FL 33542",
+  "ssn": "123-45-5678",
+  "dateOfBirth": {
+    "$date": "1999-01-01T00:00:00.000Z"
+  },
+  "medicareBeneficiaryIdentifiers": "1EG4-TE5-MK73",
+  "documents": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67420a7f1b4e3a04fb7ebcbe"
+  },
+  "firstName": "Lewy",
+  "lastName": "Frankie",
+  "email": "LewyFrankie456@gmail.com",
+  "cellPhoneNumber": "(346) 534-5234",
+  "ssn": "132-54-2343",
+  "dateOfBirth": {
+    "$date": "1998-05-06T00:00:00.000Z"
+  },
+  "medicareBeneficiaryIdentifiers": "2FS5-RE1-SF06",
+  "documents": [],
+  "__v": 0,
+  "mailingAddress": "456 Mirage Street, Kissimmee, FL 34741",
+  "address": "123 Pine Road, Orlando, FL 34952"
+},
+{
+  "_id": {
+    "$oid": "6741fffe1b4e3a04fb7ebcbc"
+  },
+  "firstName": "Lee",
+  "lastName": "Qiang",
+  "email": "lee_qilang_brilli_brilli456@gmail.com",
+  "cellPhoneNumber": "(216) 835-9545",
+  "ssn": "321-42-3243",
+  "dateOfBirth": {
+    "$date": "1998-05-05T00:00:00.000Z"
+  },
+  "medicareBeneficiaryIdentifiers": "1EG4-TE5-MK73",
+  "documents": [],
+  "__v": 0,
+  "mailingAddress": "",
+  "address": "123 Maple Street, Cleveland, OH 44119"
+},
+{
+  "_id": {
+    "$oid": "67458cacae5d6bc6131bb6f6"
+  },
+  "firstName": "Leon",
+  "lastName": "Kennedy",
+  "email": "LKen@gmail.com",
+  "cellPhoneNumber": "(432) 565-6544",
+  "address": "5432 Terno St, Raccoon City, MN, 34565",
+  "mailingAddress": "",
+  "ssn": "432-54-5432",
+  "dateOfBirth": {
+    "$date": "1980-11-07T00:00:00.000Z"
+  },
+  "medicareBeneficiaryIdentifiers": "F45H-5G4-TRG6",
+  "documents": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "6746a3d12d7649b183ca87d9"
+  },
+  "firstName": "Luis A.",
+  "lastName": "Veras Ramos",
+  "email": "luis.veras@gmail.com",
+  "cellPhoneNumber": "(407) 478-1422",
+  "address": "7402 Vineland Resort Way, Orlando, FL 43253",
+  "mailingAddress": "",
+  "ssn": "123-42-4532",
+  "dateOfBirth": {
+    "$date": "2024-11-20T00:00:00.000Z"
+  },
+  "medicareBeneficiaryIdentifiers": "E234-245-3245",
+  "documents": [],
+  "__v": 0
+},
+{
+  "_id": {
+    "$oid": "67476b877308909495fea39e"
+  },
+  "firstName": "Lisbeth",
+  "lastName": "Tankursley",
+  "email": "L1Tanky2@gmail.com",
+  "cellPhoneNumber": "(435) 818-8178",
+  "address": "3253 Main St, Orlando, FL 43244",
+  "mailingAddress": "3333 Piers Av, Shelf City, NY 45353",
+  "ssn": "123-42-4664",
+  "dateOfBirth": {
+    "$date": "1990-11-20T00:00:00.000Z"
+  },
+  "medicareBeneficiaryIdentifiers": "K3RF-4R5-3BG5",
+  "documents": [],
+  "__v": 0
+}]
