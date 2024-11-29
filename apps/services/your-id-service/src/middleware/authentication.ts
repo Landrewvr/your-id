@@ -3,8 +3,9 @@ import { IAuthenticatedRequest } from '../interfaces/authenticatedRequest';
 
 export const mockAuthentication = (req: IAuthenticatedRequest, res: Response, next: NextFunction) => {
     const token = req.headers['authorization'];
-  
-    if (token === 'mock-token') {
+
+    // For mock purposes only.
+    if (token === 'Bearer mock-token') {
 
       req.user = {
         id: '67420a7f1b4e3a04fb7ebcbe',
