@@ -8,7 +8,7 @@ import { User } from '../../types/user';
 })
 export class UserService {
   private uri = 'http://localhost:3000/user/';
-  private options = { headers: new HttpHeaders({ authorization: 'mock-token' }) };
+  private options = { headers: new HttpHeaders({ authorization: 'Bearer mock-token' }) };
 
   private httpClient = inject(HttpClient);
 
@@ -20,7 +20,7 @@ export class UserService {
     return this.httpClient.post<User>(this.uri, user, this.options);
   }
 
-  update(user: User & { _id: string }): Observable<User> {
+  update(user: User): Observable<User> {
     return this.httpClient.put<User>(this.uri + user._id,user, this.options);
   }
 
