@@ -4,18 +4,18 @@ import { MockAuthGuardService } from './services/mock-auth-guard/mock-auth-guard
 
 export const routes: Routes = [
   {
-    path: 'id-card',
+    path: 'card-id',
     loadChildren: () => 
-      import('./components/id-card/id-card.routes').then((x) => x.ID_CARD_ROUTES),
+      import('./components/card-id/card-id.routes').then((x) => x.CARD_ID_ROUTES),
     canActivate: [MockAuthGuardService]
   },
   {
     path: '',
-    redirectTo: 'id-card/0',
+    redirectTo: 'card-id/0',
     pathMatch: 'full'
   },
   {
     path: '**',
-    redirectTo: '',
+    redirectTo: 'card-id/0',
   }
 ];

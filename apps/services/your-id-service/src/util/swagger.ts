@@ -8,7 +8,8 @@ const options: swaggerJsdoc.Options = {
         openapi: "3.0.0",
         info: {
             title: 'Your id Docs',
-            version
+            version,
+            description: `API documentation for the Your-ID application. Note: FOR TESTING PURPOSES use 'mock-token' as authorize value.`
         },
         components: {
             securitySchemes: {
