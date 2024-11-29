@@ -13,12 +13,12 @@ import { User } from '../../types/user';
 import { UserService } from '../../services/user/user.service';
 
 @Component({
-  selector: 'app-id-card',
+  selector: 'app-card-id',
   imports: [FontAwesomeModule, CommonModule, ReactiveFormsModule],
-  templateUrl: './id-card.component.html',
-  styleUrl: './id-card.component.scss'
+  templateUrl: './card-id.component.html',
+  styleUrl: './card-id.component.scss'
 })
-export class IdCardComponent {
+export class CardIdComponent {
   paramSignal!: Signal<Params | undefined>;
   userForm!: FormGroup;
   user: User | undefined;
