@@ -13,7 +13,7 @@ The application is intended to streamline the workflow for organizations that ne
 
 # Monorepo
 
-This monorepo contains the codebase for a full-stack application built with **Angular**, **Node.js**, **Express**, and **MongoDB**, and uses **Docker** for containerization.
+This monorepo contains the codebase for a full-stack application built with **Angular**, **Node.js**, **Express**, and **MongoDB(Mongoose)**, and uses **Docker** for containerization.
 
 ## Project Structure
     ├── apps 
