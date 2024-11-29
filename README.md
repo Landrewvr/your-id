@@ -68,7 +68,7 @@ This monorepo contains the codebase for a full-stack application built with **An
     
     cd apps\services\your-id-service
     Copy .env.example to .env in apps/services/your-id-service and fill in the necessary values (e.g., database connection strings, API keys).
----
+
 
 ## Running the project
 
@@ -79,7 +79,7 @@ This monorepo contains the codebase for a full-stack application built with **An
         - docker compose up --build | Brings the docker container up to use the dockerized database.
         - npm run start:dev --workspace=your-id-web | Runs the ui portion of the application.
         - npm run start:dev --workspace=your-id-service | Runs the backend portion of the application.
----
+
 
 # Main Commands
 
@@ -97,8 +97,6 @@ This monorepo contains the codebase for a full-stack application built with **An
 - Executes the following:
   - `docker compose down -v`: Stops and removes the Docker container, including purging associated volumes.
 
----
-
 ## Directory: `your-id/apps/web/your-id-web`
 
 ### Command: `npm run lint`
@@ -109,7 +107,6 @@ This monorepo contains the codebase for a full-stack application built with **An
 - Executes the following:
   - `ng lint --fix`: Lints the UI codebase using ESLint rules specified in `apps/web/your-id-web/eslint.config.js` and attempts to automatically fix any issues.
 
----
     
 ## Project Features
 
