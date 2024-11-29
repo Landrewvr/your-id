@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import { User } from '../../types/user';
 
@@ -7,8 +8,8 @@ import { User } from '../../types/user';
   providedIn: 'root'
 })
 export class UserService {
-  private uri = 'http://localhost:3000/user/';
-  private options = { headers: new HttpHeaders({ authorization: 'Bearer mock-token' }) };
+  private uri = environment.apiUrl;
+  private options = { headers: new HttpHeaders({ authorization: environment.token }) };
 
   private httpClient = inject(HttpClient);
 
