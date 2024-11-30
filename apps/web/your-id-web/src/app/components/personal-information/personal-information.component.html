@@ -1,0 +1,52 @@
+<form *ngIf="userForm" [formGroup]="userForm">
+    <h2 class="section-header">Personally Identificable Information</h2>
+    <div class="body-section-information personal-info">
+        <div class="field-flex">
+            <div class="field-label">
+                <label for="ssn">
+                    <h2>Social Security Numbers (SSNs)</h2>
+                </label>
+            </div>
+            <div class="field-value">
+                <input id="ssn" placeholder="Ex.: 111-22-3333" class="regular" type="text" formControlName="ssn">
+                <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('ssn')?.hasError('required')">
+                    This
+                    field is required.</div>
+                <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('ssn')?.hasError('pattern')">
+                    This
+                    field must a valid SSN.</div>
+            </div>
+        </div>
+        <div class="field-flex">
+            <div class="field-label">
+                <label for="dateOfBirth">
+                    <h2>Date of Birth</h2>
+                </label>
+            </div>
+            <div class="field-value" [ngClass]="{'date-picker': !editMode}">
+                <input id="dateOfBirth" class="regular" type="date" formControlName="dateOfBirth">
+                <div class="error"
+                    *ngIf="formSubmitted && userForm.dirty && userForm.get('dateOfBirth')?.hasError('required')">This
+                    field
+                    is required.</div>
+            </div>
+        </div>
+        <div class="field-flex">
+            <div class="field-label">
+                <label for="medicareBeneficiaryIdentifiers">
+                    <h2>Medicare Beneficiary Identifiers (MBIs)</h2>
+                </label>
+            </div>
+            <div class="field-value">
+                <input id="medicareBeneficiaryIdentifiers" placeholder="Ex.: 1EG4-TE5-MK73" class="regular" type="text"
+                    formControlName="medicareBeneficiaryIdentifiers">
+                <div class="error"
+                    *ngIf="formSubmitted && userForm.dirty && userForm.get('medicareBeneficiaryIdentifiers')?.hasError('required')">
+                    This field is required.</div>
+                <div class="error"
+                    *ngIf="formSubmitted && userForm.dirty && userForm.get('medicareBeneficiaryIdentifiers')?.hasError('pattern')">
+                    This field must a valid Medicare Identifier.</div>
+            </div>
+        </div>
+    </div>
+</form>

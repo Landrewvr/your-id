@@ -1,0 +1,19 @@
+.address-info {
+
+    .regular {
+        margin-left: 0;
+    }
+}
+
+@media only screen and (min-width: 1530px) {
+    .address-info {
+        .field-label {
+            width: 19%;
+        }
+    
+        .field-value {
+            width: 79%;
+            align-content: center;
+        }
+    }
+}
