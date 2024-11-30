@@ -1,0 +1,20 @@
+.personal-info {
+
+    .regular {
+        margin-left: 0;
+    }
+}
+
+@media only screen and (min-width: 1530px) {
+
+    .personal-info {
+        .field-label {
+            width: 45%;
+        }
+    
+        .field-value {
+            width: 40%;
+            align-content: center;
+        }
+    }
+}
