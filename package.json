@@ -10,7 +10,10 @@
     "start:docker": "docker compose up -d --build",
     "stop:docker": "docker compose down",
     "stop:docker-v": "docker compose down -v",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "cd apps/web/your-id-web & npm run test",
+    "test:watch": "cd apps/web/your-id-web & npm run test:watch",
+    "lint": "ng lint --workspace=your-id-web",
+    "lint:fix": "ng lint --fix --workspace=your-id-web"
   },
   "author": "",
   "license": "ISC",

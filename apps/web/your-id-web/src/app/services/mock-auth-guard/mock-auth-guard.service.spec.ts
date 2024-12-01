@@ -1,13 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 
-import { MockRoleSecurityService } from './mock-auth-guard.service';
+import { MockAuthGuardService } from './mock-auth-guard.service';
 
-describe('MockRoleSecurityService', () => {
-  let service: MockRoleSecurityService;
+describe('MockAuthGuardService', () => {
+  let service: MockAuthGuardService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
-    service = TestBed.inject(MockRoleSecurityService);
+    TestBed.configureTestingModule({
+      providers: [MockAuthGuardService],
+    });
+    service = TestBed.inject(MockAuthGuardService);
   });
 
   it('should be created', () => {

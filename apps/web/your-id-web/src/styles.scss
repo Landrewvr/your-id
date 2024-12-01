@@ -46,10 +46,56 @@ h2, .bold {
 input {
     width: 100%;
     font-family: var(--font-family);
+    border: none;
+    background-color: transparent;
+    pointer-events: none;
+    user-select: text;
 }
 
 .error {
     color: #d00a0a;
     font-weight: 500;
     margin: 0.5rem 0;
+}
+
+.card-edit-mode {
+    input {
+        background-color: #ffff;
+        pointer-events: auto;
+        user-select: text;
+    }
+}
+
+.section-header {
+    color: var(--primary-color) 
+ }
+
+.body-section-information {
+
+    .regular {
+        margin-left: 30px;
+    }
+}
+
+
+@media only screen and (min-width: 1530px) {
+
+    input {
+        height: 25px;
+        align-self: center;
+    }
+
+    .body-section-information {
+        h2 {
+            margin: 6px 0;
+        }
+    }
+
+    .field-flex {
+        display: flex;
+    
+        span {
+            align-content: center;
+        }
+    }
 }

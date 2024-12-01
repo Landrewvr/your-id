@@ -1,0 +1,34 @@
+.documents {
+    .field-flex {
+        display: flex;
+    }
+
+    .picture-field {
+        margin-right: 1rem;
+        display: grid;
+        padding: 1rem;
+        background-color: var(--tertiary-bg);
+        border: 1px solid var(--secondary-color);
+        border-radius: 5px;
+    
+        img {
+            margin: auto;
+            width: 51px;
+            height: 56px;
+        }
+    }
+}
+
+@media only screen and (min-width: 1530px) {
+
+    .picture-field {
+        
+        border-radius: 5px;
+    
+        img {
+            margin: auto;
+            width: 51px;
+            height: 56px;
+        }
+    }
+}

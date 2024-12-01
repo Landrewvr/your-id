@@ -7,14 +7,30 @@ import { toSignal } from '@angular/core/rxjs-interop';
 import { faCheck, faPen, faTrash, faUser, faX } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+import { AccountInformationComponent } from '../account-information/account-information.component';
+import { AddressComponent } from '../address/address.component';
+import { DocumentsComponent } from '../documents/documents.component';
 import { LoaderService } from '../../services/loader/loader.service';
 import { patterns } from '../../consts/patterns';
+import { PersonalInformationComponent } from '../personal-information/personal-information.component';
 import { User } from '../../types/user';
 import { UserService } from '../../services/user/user.service';
 
+const COMPONENTS = [
+  AccountInformationComponent, 
+  AddressComponent, 
+  PersonalInformationComponent, 
+  DocumentsComponent
+];
+
 @Component({
   selector: 'app-card-id',
-  imports: [FontAwesomeModule, CommonModule, ReactiveFormsModule],
+  imports: [ 
+    ...COMPONENTS,
+    FontAwesomeModule, 
+    CommonModule, 
+    ReactiveFormsModule
+  ],
   templateUrl: './card-id.component.html',
   styleUrl: './card-id.component.scss'
 })

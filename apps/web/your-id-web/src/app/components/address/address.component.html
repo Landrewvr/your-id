@@ -1,0 +1,35 @@
+<form *ngIf="userForm" [formGroup]="userForm">
+    <h2 class="section-header">Address</h2>
+    <div class="body-section-information address-info">
+        <div class="field-flex">
+            <div class="field-label">
+                <label for="address">
+                    <h2>Home Address</h2>
+                </label>
+            </div>
+            <div class="field-value">
+                <input id="address" placeholder="Ex.: 123 Main St, Springfield, IL 62704" class="regular" type="text"
+                    formControlName="address">
+                <div class="error"
+                    *ngIf="formSubmitted && userForm.dirty && userForm.get('address')?.hasError('required')">
+                    This field is required.</div>
+                <div class="error"
+                    *ngIf="formSubmitted && userForm.dirty && userForm.get('address')?.hasError('pattern')">
+                    This field must be a valid US Address.</div>
+            </div>
+        </div>
+        <div class="field-flex">
+            <div class="field-label">
+                <label for="mailingAddress">
+                    <h2>Mailing Address</h2>
+                </label>
+            </div>
+            <div class="field-value">
+                <input id="mailingAddress" class="regular" type="text" formControlName="mailingAddress">
+                <div class="error"
+                    *ngIf="formSubmitted && userForm.dirty && userForm.get('mailingAddress')?.hasError('pattern')">This
+                    field must be a valid US Address.</div>
+            </div>
+        </div>
+    </div>
+</form>

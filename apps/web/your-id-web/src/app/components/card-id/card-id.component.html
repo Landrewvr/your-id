@@ -1,6 +1,5 @@
 <div class="content" [ngClass]="{'card-edit-mode': editMode}">
     <div class="header">
-        
         <h1>ID <fa-icon [icon]="icons.faUser"/></h1>
         
         <div *ngIf="!editMode">
@@ -16,124 +15,16 @@
     <div class="body">
         <form *ngIf="userForm" [formGroup]="userForm">
             <div class="body-section">
-                <h2 class="section-header">Account Information</h2>
-                <div class="body-section-information account-info">
-                    <div class="sub-section-1">
-                        <div class="field-flex">
-                            <div class="field-label">
-                                <label for="firstName"><h2>First Name</h2></label> 
-                            </div>
-                            <div class="field-value">
-                                <input id="firstName" placeholder="Ex.: John" class="regular" type="text" formControlName="firstName">
-                                <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('firstName')?.hasError('required')">This field is required.</div>
-                            </div>
-                        </div>
-                        <div class="field-flex">
-                            <div class="field-label">
-                                <label for="lastName"><h2>Last Name</h2></label>
-                            </div>
-                            <div class="field-value">
-                                <input id="lastName" placeholder="Ex.: Doe" class="regular" type="text" formControlName="lastName">
-                                <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('lastName')?.hasError('required')">This field is required.</div>
-                            </div>
-                        </div> 
-                    </div>
-                    <div class="sub-section-2">
-                        <div class="field-flex">
-                            <div class="field-label">
-                                <label for="email"><h2>Registered Email</h2></label>
-                            </div>
-                            <div class="field-value">
-                                <input id="email" placeholder="Ex.: johndoe@email.com" class="regular" type="text" formControlName="email">
-                                <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('email')?.hasError('required')">This field is required.</div>
-                                <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('email')?.hasError('email')">This field must be an valid email.</div>
-                            </div>
-                        </div>
-                        <div class="field-flex">
-                            <div class="field-label">
-                                <label for="cellPhoneNumber"><h2>Cell Phone Number</h2></label>
-                            </div>
-                            <div class="field-value">
-                                <input id="cellPhoneNumber" placeholder="Ex.: (111) 222-3333" class="regular" type="text" formControlName="cellPhoneNumber">
-                                <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('cellPhoneNumber')?.hasError('required')">This field is required.</div>
-                                <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('cellPhoneNumber')?.hasError('pattern')">This field must be a valid Cellphone Number.</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <app-account-information [userForm]="userForm" [formSubmitted]="formSubmitted"/>
             </div>
             <div class="body-section">
-                <h2 class="section-header">Address</h2>
-                <div class="body-section-information address-info">
-                    <div class="field-flex">
-                        <div class="field-label">
-                            <label for="address"><h2>Home Address</h2></label>
-                        </div>
-                        <div class="field-value">
-                            <input id="address" placeholder="Ex.: 123 Main St, Springfield, IL 62704" class="regular" type="text" formControlName="address">
-                            <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('address')?.hasError('required')">This field is required.</div>
-                            <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('address')?.hasError('pattern')">This field must be a valid US Address.</div>
-                        </div>
-                    </div>
-                    <div class="field-flex">
-                        <div class="field-label">
-                            <label for="mailingAddress"><h2>Mailing Address</h2></label>
-                        </div>
-                        <div class="field-value">
-                            <input id="mailingAddress" class="regular" type="text" formControlName="mailingAddress">
-                            <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('mailingAddress')?.hasError('pattern')">This field must be a valid US Address.</div>
-                        </div>
-                    </div>
-                </div>
+                <app-address [userForm]="userForm" [formSubmitted]="formSubmitted"/>
             </div>
             <div class="body-section">
-                <h2 class="section-header">Personally Identificable Information</h2>
-                <div class="body-section-information personal-info">
-                    <div class="field-flex">
-                        <div class="field-label">
-                            <label for="ssn"><h2>Social Security Numbers (SSNs)</h2></label>
-                        </div>
-                        <div class="field-value">
-                            <input id="ssn" placeholder="Ex.: 111-22-3333" class="regular" type="text" formControlName="ssn">
-                            <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('ssn')?.hasError('required')">This field is required.</div>
-                            <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('ssn')?.hasError('pattern')">This field must a valid SSN.</div>
-                        </div>
-                    </div>
-                    <div class="field-flex">
-                        <div class="field-label">
-                            <label for="dateOfBirth"><h2>Date of Birth</h2></label>
-                        </div>
-                        <div class="field-value" [ngClass]="{'date-picker': !editMode}">
-                            <input id="dateOfBirth" class="regular" type="date" formControlName="dateOfBirth">
-                            <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('dateOfBirth')?.hasError('required')">This field is required.</div>
-                        </div>
-                    </div>
-                    <div class="field-flex">
-                        <div class="field-label">
-                            <label for="medicareBeneficiaryIdentifiers"><h2>Medicare Beneficiary Identifiers (MBIs)</h2></label>
-                        </div>
-                        <div class="field-value">
-                            <input id="medicareBeneficiaryIdentifiers" placeholder="Ex.: 1EG4-TE5-MK73" class="regular" type="text" formControlName="medicareBeneficiaryIdentifiers">
-                            <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('medicareBeneficiaryIdentifiers')?.hasError('required')">This field is required.</div>
-                            <div class="error" *ngIf="formSubmitted && userForm.dirty && userForm.get('medicareBeneficiaryIdentifiers')?.hasError('pattern')">This field must a valid Medicare Identifier.</div>
-                        </div>
-                    </div>
-                </div>
+                <app-personal-information [userForm]="userForm" [formSubmitted]="formSubmitted" />
             </div>
             <div class="body-section">
-                <h2 class="section-header">Documents</h2>
-                <div class="body-section-information documents">
-                    <div class="field-flex">
-                        <div class="picture-field">
-                            <img src="../../assets/icondoc.JPG" alt="">
-                            <span class="medium">ID Card.png</span>
-                        </div>
-                        <div class="picture-field">
-                            <img src="../../assets/iconpng.JPG" alt="">
-                            <span class="medium">ID Card.png</span>
-                        </div>
-                    </div>
-                </div>
+                <app-documents />
             </div>
         </form>
     </div>
