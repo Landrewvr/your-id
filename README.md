@@ -85,12 +85,12 @@ This monorepo contains the codebase for a full-stack application built with **An
     directory: your-id
     cmd: npm run test
 
-    Runst the following commands:
+    Runs the following commands:
         - cd apps/web/your-id-web & npm run test | Goes to the your-id-web directory and runs the "jest" command
 
     cmd: npm run test:watch
 
-    Runst the following commands:
+    Runs the following commands:
         - cd apps/web/your-id-web & npm run test:watch | Goes to the your-id-web directory and runs the "jest --watch" command
 
 
