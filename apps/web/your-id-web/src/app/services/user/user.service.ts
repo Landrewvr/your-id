@@ -14,18 +14,18 @@ export class UserService {
   private httpClient = inject(HttpClient);
 
   getUserById(id: string): Observable<User> {
-    return this.httpClient.get<User>(this.uri + id, this.options);
+    return this.httpClient.get<User>(`${this.uri}user/${id}`, this.options);
   }
 
   create(user: User): Observable<User> {
-    return this.httpClient.post<User>(this.uri, user, this.options);
+    return this.httpClient.post<User>(`${this.uri}user/`, user, this.options);
   }
 
   update(user: User): Observable<User> {
-    return this.httpClient.put<User>(this.uri + user._id,user, this.options);
+    return this.httpClient.put<User>(`${this.uri}user/${user._id}`, user, this.options);
   }
 
-  delete(id: string): Observable<void> {
-    return this.httpClient.delete<void>(this.uri + id, this.options);
+  delete(id: string): Observable<{ message: string }> {
+    return this.httpClient.delete<{ message: string }>(`${this.uri}user/${id}`, this.options);
   }
 }

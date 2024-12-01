@@ -7,7 +7,7 @@ export interface User {
     address: string,
     mailingAddress: string,
     ssn: string,
-    dateOfBirth: Date,
+    dateOfBirth: Date | string,
     medicareBeneficiaryIdentifiers: string,
     documents: string[]
 }

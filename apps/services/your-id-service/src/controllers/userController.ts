@@ -72,8 +72,8 @@ export const deleteUser = async (req: Request, res: Response, next: NextFunction
             res.status(404);
             throw new Error('User not found');
         }
-
-        res.status(200).json(response);
+         
+        res.status(200).json({ message: 'User Deleted' });
     } catch (err) {
         next(err)
     }
