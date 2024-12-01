@@ -10,7 +10,11 @@
     "start:docker": "docker compose up -d --build",
     "stop:docker": "docker compose down",
     "stop:docker-v": "docker compose down -v",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "u-test": "jest --workspace=your-id-web",
+    "u-test:watch": "jest --watch --workspace=your-id-web",
+    "u-test:ci": "jest --runInBand --workspace=your-id-web",
+    "lint": "ng lint --workspace=your-id-web",
+    "lint:fix": "ng lint --fix --workspace=your-id-web"
   },
   "author": "",
   "license": "ISC",
