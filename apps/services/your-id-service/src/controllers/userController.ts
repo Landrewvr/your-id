@@ -4,10 +4,10 @@ import { validationResult } from 'express-validator';
 
 // Create user
 export const createUser = async(req: Request, res: Response, next: NextFunction) => {
-    const ERRORS = validationResult(req);
-    if (!ERRORS.isEmpty()) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
         
-        return res.status(400).json({ errors: ERRORS.array() });
+        return res.status(400).json({ errors: errors.array() });
     }
 
     try {
@@ -21,10 +21,10 @@ export const createUser = async(req: Request, res: Response, next: NextFunction)
 
 // Update User by id
 export const updateUser = async(req: Request, res: Response, next: NextFunction) => {
-    const ERRORS = validationResult(req);
-    if (!ERRORS.isEmpty()) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
         
-        return res.status(400).json({ errors: ERRORS.array() });
+        return res.status(400).json({ errors: errors.array() });
     }
 
     try {
@@ -43,10 +43,10 @@ export const updateUser = async(req: Request, res: Response, next: NextFunction)
 
 // Get user by id
 export const getUser = async(req: Request, res: Response, next: NextFunction) => {
-    const ERRORS = validationResult(req);
-    if (!ERRORS.isEmpty()) {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
         
-        return res.status(400).json({ message: ERRORS.array()[0].msg });
+        return res.status(400).json({ message: errors.array()[0].msg });
     }
 
     try {
