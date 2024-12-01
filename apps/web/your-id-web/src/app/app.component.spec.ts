@@ -1,24 +1,46 @@
-import { TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { By } from '@angular/platform-browser';
+import { RouterOutlet } from '@angular/router';
+
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 import { AppComponent } from './app.component';
+import { LoaderComponent } from './components/loader/loader.component';
+import { LoaderService } from './services/loader/loader.service';
 
 describe('AppComponent', () => {
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [AppComponent],
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  let loaderService: LoaderService;
+
+  beforeEach(() => {
+    TestBed.configureTestingModule({
+      imports: [RouterOutlet, FontAwesomeModule, LoaderComponent, AppComponent],
+      providers: [LoaderService],
     }).compileComponents();
+
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    loaderService = TestBed.inject(LoaderService);
   });
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+  it('should create the component', () => {
+    expect(component).toBeTruthy();
   });
 
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  it('should toggle the loader based on LoaderService loadingState', () => {
+    // Set the loader service state to true
+    loaderService.loadingState.set(true);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, your-id-web');
+
+    const loaderElement = fixture.debugElement.query(By.css('app-loader'));
+    expect(loaderElement).toBeTruthy();
+
+    // Set the loader service state to false
+    loaderService.loadingState.set(false);
+    fixture.detectChanges();
+
+    const hiddenLoaderElement = fixture.debugElement.query(By.css('app-loader'));
+    expect(hiddenLoaderElement).toBeFalsy();
   });
 });

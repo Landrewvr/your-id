@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { body, checkSchema } from 'express-validator';
+import { checkSchema } from 'express-validator';
 import { createUserValidatorSchema, getUserValidatorSchema, updateUserValidatorSchema } from '../validators/userValidators';
 import * as userController from '../controllers/userController';
 import { mockAuthorization } from '../middleware/authorization';

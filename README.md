@@ -80,6 +80,19 @@ This monorepo contains the codebase for a full-stack application built with **An
         - npm run start:dev --workspace=your-id-web | Runs the ui portion of the application.
         - npm run start:dev --workspace=your-id-service | Runs the backend portion of the application.
 
+# Running Jest for angular
+
+    directory: your-id
+    cmd: npm run test
+
+    Runs the following commands:
+        - cd apps/web/your-id-web & npm run test | Goes to the your-id-web directory and runs the "jest" command
+
+    cmd: npm run test:watch
+
+    Runs the following commands:
+        - cd apps/web/your-id-web & npm run test:watch | Goes to the your-id-web directory and runs the "jest --watch" command
+
 
 # Main Commands
 

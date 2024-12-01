@@ -10,9 +10,8 @@
     "start:docker": "docker compose up -d --build",
     "stop:docker": "docker compose down",
     "stop:docker-v": "docker compose down -v",
-    "u-test": "jest --workspace=your-id-web",
-    "u-test:watch": "jest --watch --workspace=your-id-web",
-    "u-test:ci": "jest --runInBand --workspace=your-id-web",
+    "test": "cd apps/web/your-id-web & npm run test",
+    "test:watch": "cd apps/web/your-id-web & npm run test:watch",
     "lint": "ng lint --workspace=your-id-web",
     "lint:fix": "ng lint --fix --workspace=your-id-web"
   },
